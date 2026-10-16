@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#111827">
+<title>Gaming.Chat</title><link rel="manifest" href="/manifest.webmanifest"><link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="shell">
+  <header class="top"><div class="logo">🎮</div><div><h1>Gaming.Chat</h1><p>چت خصوصی گیمرها</p></div><span id="connection" class="pill">آفلاین</span></header>
+  <main>
+    <section id="authPanel" class="panel auth-panel">
+      <div class="tabs"><button class="tab active" data-mode="login">ورود</button><button class="tab" data-mode="register">ساخت حساب</button></div>
+      <form id="authForm"><label>نام کاربری<input id="username" minlength="3" maxlength="24" required autocomplete="username" placeholder="مثلاً gamer_123"></label><label>رمز عبور<input id="password" type="password" minlength="8" required autocomplete="current-password" placeholder="حداقل ۸ کاراکتر"></label><button class="primary" type="submit" id="authSubmit">ورود به حساب</button></form>
+      <p id="authMessage" class="message"></p><p class="muted small">برای ساخت حساب شماره تلفن لازم نیست.</p>
+    </section>
+    <section id="chatPanel" class="chat-layout hidden">
+      <aside class="panel sidebar"><div class="my-card"><div class="avatar">👾</div><div><b id="myName"></b><div class="muted small">شناسه: <strong id="myId"></strong></div></div></div><button id="copyId" class="secondary">کپی شناسه</button><div class="separator"></div><label>شروع گفت‌وگو<input id="targetId" inputmode="numeric" maxlength="8" placeholder="شناسه ۸ رقمی دوست"></label><button id="openChat" class="primary">باز کردن چت</button><p id="targetMessage" class="message"></p><button id="logout" class="link-button">خروج از حساب</button></aside>
+      <section class="panel conversation"><div id="emptyState" class="empty"><div class="big">💬</div><h2>گفت‌وگوی خصوصی</h2><p>شناسهٔ ۸ رقمی دوستت را وارد کن تا گفتگو را شروع کنی.</p></div><div id="activeChat" class="hidden chat-active"><div class="chat-head"><div><b id="friendName">دوست</b><div class="muted small" id="friendId"></div></div><span id="friendPresence" class="muted small">وضعیت نامشخص</span></div><div id="messages" class="messages"></div><form id="sendForm" class="send-form"><label class="file-button" title="ارسال فایل">📎<input type="file" id="fileInput" hidden></label><input id="messageInput" maxlength="4000" placeholder="پیامت را بنویس..." autocomplete="off"><button class="primary send" type="submit">ارسال</button></form><p class="muted tiny">فایل‌ها حداکثر ۱۰ مگابایت هستند.</p></div></section>
+    </section>
+  </main><footer>Gaming.Chat · نسخهٔ اولیه</footer>
+</div>
+<script src="/socket.io/socket.io.js"></script><script src="/app.js"></script>
+</body></html>

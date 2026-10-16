@@ -1,0 +1,38 @@
+{
+  "name": "gaming-chat",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Gaming.Chat starter: username/password accounts, 8-digit IDs and private realtime messaging",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "build": "node -e \"console.log('Gaming.Chat server app: no frontend build step required')\"",
+    "desktop": "electron .",
+    "dist:win": "electron-builder --win nsis",
+    "android:init": "npx cap add android",
+    "android:sync": "npx cap sync android",
+    "android:open": "npx cap open android"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "socket.io": "^4.8.1",
+    "multer": "^2.0.2"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^7.4.3",
+    "@capacitor/cli": "^7.4.3",
+    "@capacitor/core": "^7.4.3",
+    "electron": "^38.2.0",
+    "electron-builder": "^26.0.12"
+  },
+  "main": "electron/main.cjs",
+  "build": {
+    "appId": "com.gamingchat.app",
+    "productName": "Gaming.Chat",
+    "directories": {"output": "release"},
+    "files": ["server.js", "store.js", "public/**/*", "electron/**/*", "package.json", "node_modules/**/*"],
+    "win": {"target": "nsis", "artifactName": "Gaming.Chat-Setup-${version}.${ext}"},
+    "nsis": {"oneClick": false, "allowToChangeInstallationDirectory": true}
+  }
+}

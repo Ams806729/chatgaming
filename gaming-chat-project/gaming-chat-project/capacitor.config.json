@@ -1,0 +1,6 @@
+{
+  "appId": "com.gamingchat.app",
+  "appName": "Gaming.Chat",
+  "webDir": "public",
+  "server": { "cleartext": true }
+}
